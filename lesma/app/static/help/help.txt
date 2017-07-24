@@ -1,0 +1,33 @@
+lesma(1)                             LESMA                             lesma(1)
+
+NAME
+    lesma - simple paste app friendly with command line and browser
+
+SYNOPSIS
+    <command> | curl -F 'lesma=<-' https://pastein.connectical.com
+
+DESCRIPTION
+    add any extension to resulting url for line numbers and syntax highlighting
+    add ?raw for plain file
+    add #n-<number> for go directly to line number anchor
+
+SPECIALS
+    /:help show this page
+
+EXAMPLES
+    ~$ cat lesma.py | curl -F 'lesma=<-' https://pastein.connectical.com
+       https://pastein.connectical.com/lesma
+    ~$ firefox https://pastein.connectical.com/lesma.py
+
+AUTHOR
+    Written by Óscar García Amor
+
+COPYRIGHT
+    Copyright © 2017 Óscar García Amor (https://ogarcia.me).
+    Distributed under terms of the GNU GPLv3 license.
+
+REPORTING BUGS
+    http://github.com/ogarcia/lesma
+
+SEE ALSO
+    http://github.com/ogarcia/lesma
