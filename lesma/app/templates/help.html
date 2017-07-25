@@ -11,7 +11,8 @@
 browser</p>
 
 <p class="text-primary">SYNOPSIS</p>
-<p class="pl-4">&lt;command&gt; | curl -F 'lesma=&lt;-' <a href="{{ url }}">{{ url }}</a></p>
+<pre class="pl-4">&lt;command&gt; | curl -F 'lesma=&lt;-' <a
+   href="{{ url_for('.index', _external=True) }}">{{ url_for('.index', _external=True) }}</a></pre>
 
 <p class="text-primary">DESCRIPTION</p>
 <p class="pl-4">add any extension to resulting url for line numbers
@@ -21,28 +22,28 @@ add <strong>#n-&lt;number&gt;</strong> for go directly to line number
 anchor</p>
 
 <p class="text-primary">SPECIALS</p>
-<p class="pl-4"><a href="{{ url }}:help">/:help</a> show this page</p>
+<p class="pl-4"><a href="{{ url_for('.get_help') }}">/:help</a> show this page</p>
 
 <p class="text-primary">EXAMPLES</p>
 <pre class="pl-4">
-~$ cat lesma.py | curl -F 'lesma=&lt;-' <a href="{{ url }}">{{ url }}</a>
-   <a href="{{ url }}lesma">{{ url }}lesma</a>
-~$ firefox <a href="{{ url }}lesma.py">{{ url }}lesma.py</a></pre>
+~$ cat lesma.py | curl -F 'lesma=&lt;-' <a
+     href="{{ url_for('.index', _external=True) }}">{{ url_for('.index', _external=True) }}</a>
+   <a href="{{ url_for('.get_lesma', lesma_id='lesma', _external=True) }}">{{ url_for('.get_lesma', lesma_id='lesma', _external=True) }}</a>
+~$ firefox <a href="{{ url_for('.get_lesma', lesma_id='lesma.py', _external=True) }}">{{ url_for('.get_lesma', lesma_id='lesma.py', _external=True) }}</a></pre>
 
-      <p class="text-primary">AUTHOR</p>
-      <p class="pl-4">Written by Óscar García Amor</p>
+<p class="text-primary">AUTHOR</p>
+<p class="pl-4">Written by Óscar García Amor</p>
 
-      <p class="text-primary">COPYRIGHT</p>
-      <p class="pl-4">Copyright © 2017 Óscar García Amor (<a
-      href="https://ogarcia.me">https://ogarcia.me</a>).<br>
-      Distributed under terms of the GNU GPLv3 license.</p>
+<p class="text-primary">COPYRIGHT</p>
+<p class="pl-4">Copyright © 2017 Óscar García Amor (<a
+   href="https://ogarcia.me">https://ogarcia.me</a>).<br>
+ Distributed under terms of the GNU GPLv3 license.</p>
 
-      <p class="text-primary">REPORTING BUGS</p>
-      <p class="pl-4"><a
-      href="https://github.com/ogarcia/lesma/issues">https://github.com/ogarcia/lesma/issues</a></p>
+<p class="text-primary">REPORTING BUGS</p>
+<p class="pl-4"><a
+   href="https://github.com/ogarcia/lesma/issues">https://github.com/ogarcia/lesma/issues</a></p>
 
-      <p class="text-primary">SEE ALSO</p>
-      <p class="pl-4"><a
-      href="http://github.com/ogarcia/lesma">http://github.com/ogarcia/lesma</a></p>
-    </div>
+<p class="text-primary">SEE ALSO</p>
+<p class="pl-4"><a
+   href="http://github.com/ogarcia/lesma">http://github.com/ogarcia/lesma</a></p>
 {% endblock %}

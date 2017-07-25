@@ -6,16 +6,11 @@
 #
 # Distributed under terms of the GNU GPLv3 license.
 
-from flask import abort, Blueprint, make_response, request, render_template, send_from_directory
+from flask import abort, Blueprint, make_response, request, render_template, send_from_directory, url_for
 
 from pygments import highlight
 from pygments.formatters import HtmlFormatter
 import pygments.lexers
-
-try:
-    from urlparse import urljoin
-except ModuleNotFoundError:
-    from urllib.parse import urljoin
 
 from tempfile import mkdtemp
 
@@ -126,7 +121,7 @@ def index():
     if request.method == 'POST':
         lesma = request.form['lesma']
         nid = write(new_hash(), lesma)
-        redirect = urljoin(request.url_root, nid)
+        redirect = url_for('.get_lesma', lesma_id=nid, _external=True)
         response = make_response('{}\n'.format(redirect), 303)
         response.headers['Location'] = redirect
         return response
@@ -169,8 +164,8 @@ def get_help():
     user_agent = request.headers.get('User-Agent').lower()
     raw = request.args.get('raw')
     if raw is not None or any(agent in user_agent for agent in PLAIN_TEXT_AGENTS):
-        return make_response(render_template('help.txt', url=request.url_root), {'Content-Type': 'text/plain; charset=UTF-8'})
-    return render_template('help.html', url=request.url_root, help=True)
+        return make_response(render_template('help.txt'), {'Content-Type': 'text/plain; charset=UTF-8'})
+    return render_template('help.html', help=True)
 
 
 # Serve favicon

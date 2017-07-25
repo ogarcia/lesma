@@ -28,8 +28,8 @@ def dev():
 
     Never use this server for production.
     """
-    host = sys.argv[2] if len(sys.argv) > 2 else os.environ.get('LESMA_HOST', DEFAULT_HOST)
-    port = int(sys.argv[3]) if len(sys.argv) > 3 else int(os.environ.get('LESMA_PORT', DEFAULT_PORT))
+    host = sys.argv[2] if len(sys.argv) > 2 else os.environ.get('LESMA_HOST', DEFAULT_DEVEL_HOST)
+    port = int(sys.argv[3]) if len(sys.argv) > 3 else int(os.environ.get('LESMA_PORT', DEFAULT_DEVEL_PORT))
 
     app.run(host=host, port=port, debug=True)
 

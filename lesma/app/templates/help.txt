@@ -4,7 +4,7 @@ NAME
     lesma - simple paste app friendly with command line and browser
 
 SYNOPSIS
-    <command> | curl -F 'lesma=<-' {{ url }}
+    <command> | curl -F 'lesma=<-' {{ url_for('.index', _external=True) }}
 
 DESCRIPTION
     add any extension to resulting url for line numbers and syntax highlighting
@@ -15,9 +15,9 @@ SPECIALS
     /:help show this page
 
 EXAMPLES
-    ~$ cat lesma.py | curl -F 'lesma=<-' {{ url }}
-       {{ url }}lesma
-    ~$ firefox {{ url }}lesma.py
+    ~$ cat lesma.py | curl -F 'lesma=<-' {{ url_for('.index', _external=True) }}
+       {{ url_for('.get_lesma', lesma_id='lesma', _external=True) }}
+    ~$ firefox {{ url_for('.get_lesma', lesma_id='lesma.py', _external=True) }}
 
 AUTHOR
     Written by Óscar García Amor

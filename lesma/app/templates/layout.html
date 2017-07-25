@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
+    <!-- meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>lesma{% if title %}/{{ lesma_id }}{% endif %}</title>
+    <meta name="description" content="Simple paste app friendly with command line and browser.">
+    <meta name="author" content="Óscar García Amor">
+    <meta name="keywords" content="lesma, paste, pastebin, sprunge, pastein, hastebin, friendly, command line">
+    <meta name="url" content="{{ url_for('.index', _external=True) }}" itemprop="url">
+    <meta property="og:title" content="lesma">
+    <meta property="og:url" content="{{ url_for('.index', _external=True) }}">
+    <meta property="og:description" content="Simple paste app friendly with command line and browser.">
+    <meta property="og:image" content="{{ url_for('static', filename='img/favicon-512.png', _external=True) }}">
+    <title>lesma{% if lesma_id %}/{{ lesma_id }}{% endif %}</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
@@ -59,7 +67,7 @@
           </li>
         </ul>
       </div>
-      <a class="navbar-brand" href="/:help">lesma</a>
+      <a class="navbar-brand" href="{{ url_for('.get_help') }}">lesma</a>
     </nav>
 
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
