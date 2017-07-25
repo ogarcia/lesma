@@ -55,6 +55,8 @@ def server():
     port = int(sys.argv[3]) if len(sys.argv) > 3 else int(os.environ.get('LESMA_PORT', DEFAULT_PORT))
 
     from gevent.pywsgi import WSGIServer
+    from werkzeug.contrib.fixers import ProxyFix
+    app.wsgi_app = ProxyFix(app.wsgi_app)
     print('Serving on http://{}:{}/'.format(host, port))
     WSGIServer((host, port), app).serve_forever()
 
