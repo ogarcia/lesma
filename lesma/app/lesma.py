@@ -130,6 +130,9 @@ def index():
         response = make_response('{}\n'.format(redirect), 303)
         response.headers['Location'] = redirect
         return response
+    user_agent = request.headers.get('User-Agent').lower()
+    if any(agent in user_agent for agent in PLAIN_TEXT_AGENTS):
+        return get_help()
     return render_template('index.html', editable=True)
 
 
