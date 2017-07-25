@@ -1,7 +1,7 @@
 lesma(1)                             LESMA                             lesma(1)
 
 NAME
-    lesma - simple paste app friendly with command line and browser
+    lesma - simple paste app friendly with browser and command line
 
 SYNOPSIS
     <command> | curl -F 'lesma=<-' {{ url_for('.index', _external=True) }}

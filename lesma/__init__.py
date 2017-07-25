@@ -8,7 +8,7 @@
 
 NAME = 'lesma'
 VERSION = '0.4'
-DESCRIPTION = 'Simple paste app friendly with command line and browser with files as storage backend'
+DESCRIPTION = 'Simple paste app, friendly with browser and command line, with files as storage backend.'
 AUTHOR_NAME = 'Óscar García Amor'
 AUTHOR_EMAIL = 'ogarcia@connectical.com'
 URL = 'https://github.com/connectical/pgpapi'

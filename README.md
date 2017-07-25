@@ -5,7 +5,7 @@
 Redistribution, modifications and pull requests are welcomed under the terms
 of GPLv3 license.
 
-lesma is a simple paste app friendly with command line and browser with
+lesma is a simple paste app, friendly with browser and command line, with
 files as storage backend. You can see in action in
 https://paste.connectical.com.
 
