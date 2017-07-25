@@ -24,4 +24,4 @@ VOLUME [ "$STORE" ]
 
 USER nobody
 
-ENTRYPOINT [ "/usr/local/bin/lesma", "server" ]
+ENTRYPOINT [ "/usr/local/bin/lesma", "wsgi" ]

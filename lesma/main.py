@@ -33,15 +33,6 @@ def dev():
 
     app.run(host=host, port=port, debug=True)
 
-    """
-    if len(sys.argv) > 2:
-        port = int(sys.argv[2])
-    else:
-        port = int(os.environ.get('LESMA_PORT', DEFAULT_DEVEL_PORT))
-
-    wsgi(os.environ.get("LESMA_ENVIRON", 'development')).run(port=port)
-    """
-
 
 def server():
     """server [host] [port]
@@ -51,8 +42,15 @@ def server():
     - LESMA_PORT, the port of the webserver.
     - LESMA_STORE, the path for store lesmas.
     """
-    host = sys.argv[2] if len(sys.argv) > 2 else os.environ.get('LESMA_HOST', DEFAULT_HOST)
-    port = int(sys.argv[3]) if len(sys.argv) > 3 else int(os.environ.get('LESMA_PORT', DEFAULT_PORT))
+    host = sys.argv[2] if len(sys.argv) > 2 else None
+    port = int(sys.argv[3]) if len(sys.argv) > 3 else None
+    wsgi(host, port)
+
+
+def wsgi(host=None, port=None):
+    """Return WSGI server for application"""
+    host = os.environ.get('LESMA_HOST', DEFAULT_HOST) if host is None else host
+    port = int(os.environ.get('LESMA_PORT', DEFAULT_PORT)) if port is None else port
 
     from gevent.pywsgi import WSGIServer
     from werkzeug.contrib.fixers import ProxyFix
