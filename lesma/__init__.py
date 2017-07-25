@@ -7,7 +7,7 @@
 # Distributed under terms of the GNU GPLv3 license.
 
 NAME = 'lesma'
-VERSION = '0.1'
+VERSION = '0.2'
 DESCRIPTION = 'Simple paste app with files as storage backend'
 AUTHOR_NAME = 'Óscar García Amor'
 AUTHOR_EMAIL = 'ogarcia@connectical.com'

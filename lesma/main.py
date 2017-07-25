@@ -9,25 +9,30 @@
 import os
 import sys
 
-from lesma import app
+from lesma.app import app
 
 
+DEFAULT_DEVEL_HOST = '127.0.0.1'
 DEFAULT_DEVEL_PORT = 7766
 DEFAULT_HOST = '127.0.0.1'
 DEFAULT_PORT = 7777
 
 
-def wsgi(app_environ='production'):
-    """Return WSGI handler for application."""
-    return app.LesmaApp([app_environ])
-
-
 def dev():
-    """dev [port]
-    Run a development server in specific port (LESMA_PORT variable is valid too).
-    Aditionally you can use LESMA_ENVIRON variable to force diferent environment to test.
+    """dev [host] [port]
+    Run a development server in specific host and port.
+    Aditionally you can specify the following environment variables.
+    - LESMA_HOST, the hostname to listen on.
+    - LESMA_PORT, the port of the webserver.
+    - LESMA_STORE, the path for store lesmas.
 
     Never use this server for production.
+    """
+    host = sys.argv[2] if len(sys.argv) > 2 else os.environ.get('LESMA_HOST', DEFAULT_HOST)
+    port = int(sys.argv[3]) if len(sys.argv) > 3 else int(os.environ.get('LESMA_PORT', DEFAULT_PORT))
+
+    app.run(host=host, port=port, debug=True)
+
     """
     if len(sys.argv) > 2:
         port = int(sys.argv[2])
@@ -35,19 +40,23 @@ def dev():
         port = int(os.environ.get('LESMA_PORT', DEFAULT_DEVEL_PORT))
 
     wsgi(os.environ.get("LESMA_ENVIRON", 'development')).run(port=port)
+    """
 
 
 def server():
     """server [host] [port]
-    Run a production server in specific port (LESMA_HOST and LESMA_PORT variable is valid too).
-    Aditionally you can use LESMA_ENVIRON variable to force diferent environment name.
+    Run a production server in specific host and port.
+    Aditionally you can specify the following environment variables.
+    - LESMA_HOST, the hostname to listen on.
+    - LESMA_PORT, the port of the webserver.
+    - LESMA_STORE, the path for store lesmas.
     """
     host = sys.argv[2] if len(sys.argv) > 2 else os.environ.get('LESMA_HOST', DEFAULT_HOST)
     port = int(sys.argv[3]) if len(sys.argv) > 3 else int(os.environ.get('LESMA_PORT', DEFAULT_PORT))
 
     from gevent.pywsgi import WSGIServer
-    print('Serving on {}:{}...'.format(host, port))
-    WSGIServer((host, port), wsgi(os.environ.get("LESMA_ENVIRON", 'development'))).serve_forever()
+    print('Serving on http://{}:{}/'.format(host, port))
+    WSGIServer((host, port), app).serve_forever()
 
 
 def cli():
@@ -62,5 +71,5 @@ def cli():
                 print('{} is not a valid argument'.format(sys.argv[1]))
     else:
         for x, y in globals().items():
-            if x != 'cli' and x != 'wsgi' and x[0] != '_' and hasattr(y, '__call__') and hasattr(y, '__doc__'):
+            if x != 'app' and x != 'cli' and x != 'wsgi' and x[0] != '_' and hasattr(y, '__call__') and hasattr(y, '__doc__'):
                 print('%s' % (y.__doc__,))

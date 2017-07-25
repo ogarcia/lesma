@@ -1,0 +1,6 @@
+{% extends "layout.html" %}
+{% block body %}
+<form id="lesmafrm" class="lesma-input pb-2" method="post" action="{{ url_for('.index') }}">
+  <textarea id="lesma" class="form-control lesma-input" name="lesma" autofocus>{{ lesma }}</textarea>
+</form>
+{% endblock %}

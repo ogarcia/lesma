@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="d-flex justify-content-between bg-primary text-white">
+  <div class="p-2 px-4">lesma(1)</div>
+  <div class="p-2">LESMA</div>
+  <div class="p-2 px-4">lesma(1)</div>
+</div>
+
+<p class="text-primary pt-2">NAME</p>
+<p class="pl-4">lesma - simple paste app friendly with command line and
+browser</p>
+
+<p class="text-primary">SYNOPSIS</p>
+<p class="pl-4">&lt;command&gt; | curl -F 'lesma=&lt;-' <a href="{{ url }}">{{ url }}</a></p>
+
+<p class="text-primary">DESCRIPTION</p>
+<p class="pl-4">add any extension to resulting url for line numbers
+and syntax highlighting<br>
+add <strong>?raw</strong> for plain file<br>
+add <strong>#n-&lt;number&gt;</strong> for go directly to line number
+anchor</p>
+
+<p class="text-primary">SPECIALS</p>
+<p class="pl-4"><a href="{{ url }}:help">/:help</a> show this page</p>
+
+<p class="text-primary">EXAMPLES</p>
+<pre class="pl-4">
+~$ cat lesma.py | curl -F 'lesma=&lt;-' <a href="{{ url }}">{{ url }}</a>
+   <a href="{{ url }}lesma">{{ url }}lesma</a>
+~$ firefox <a href="{{ url }}lesma.py">{{ url }}lesma.py</a></pre>
+
+      <p class="text-primary">AUTHOR</p>
+      <p class="pl-4">Written by Óscar García Amor</p>
+
+      <p class="text-primary">COPYRIGHT</p>
+      <p class="pl-4">Copyright © 2017 Óscar García Amor (<a
+      href="https://ogarcia.me">https://ogarcia.me</a>).<br>
+      Distributed under terms of the GNU GPLv3 license.</p>
+
+      <p class="text-primary">REPORTING BUGS</p>
+      <p class="pl-4"><a
+      href="https://github.com/ogarcia/lesma/issues">https://github.com/ogarcia/lesma/issues</a></p>
+
+      <p class="text-primary">SEE ALSO</p>
+      <p class="pl-4"><a
+      href="http://github.com/ogarcia/lesma">http://github.com/ogarcia/lesma</a></p>
+    </div>
+{% endblock %}
