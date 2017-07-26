@@ -31,7 +31,7 @@
   </head>
   <body class="py-2">
 
-    <div class="container-fluid pb-5 lesma-input">
+    <div class="container-fluid pb-5 {% if editable %}lesma-input{% endif %}">
       {% block body %}{% endblock %}
     </div>
 
