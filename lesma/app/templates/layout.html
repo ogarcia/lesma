@@ -31,7 +31,7 @@
   </head>
   <body class="py-2">
 
-    <div class="container-fluid pb-5 {% if editable %}lesma-input{% endif %}">
+    <div class="container-fluid pb-5 {% if editable or error %}lesma-input{% endif %}">
       {% block body %}{% endblock %}
     </div>
 
@@ -52,7 +52,7 @@
             {% endif %}
           </li>
           <li class="nav-item">
-            {% if editable or help %}
+            {% if editable or error or help %}
             <button id="newlesma" class="btn btn-primary" disabled>Clone</button>
             {% else %}
             <a id="clonelesma" class="btn btn-primary" href="{{ url_for('.clone_lesma', lesma_id=lesma_id) }}">Clone</a>
