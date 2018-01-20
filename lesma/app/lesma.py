@@ -125,7 +125,7 @@ def index():
         response = make_response('{}\n'.format(redirect), 303)
         response.headers['Location'] = redirect
         return response
-    user_agent = request.headers.get('User-Agent').lower()
+    user_agent = request.headers.get('User-Agent', '').lower()
     if any(agent in user_agent for agent in PLAIN_TEXT_AGENTS):
         return get_help()
     return render_template('index.html', editable=True)
@@ -133,7 +133,7 @@ def index():
 
 @lesma.route('/<lesma_id>')
 def get_lesma(lesma_id):
-    user_agent = request.headers.get('User-Agent').lower()
+    user_agent = request.headers.get('User-Agent', '').lower()
     lesma_name, lesma_format = os.path.splitext(lesma_id)
     lesma_content = read(lesma_name)
     if lesma_content is not None:
@@ -161,7 +161,7 @@ def clone_lesma(lesma_id):
 
 @lesma.route('/:help')
 def get_help():
-    user_agent = request.headers.get('User-Agent').lower()
+    user_agent = request.headers.get('User-Agent', '').lower()
     raw = request.args.get('raw')
     if raw is not None or any(agent in user_agent for agent in PLAIN_TEXT_AGENTS):
         return make_response(render_template('help.txt'), {'Content-Type': 'text/plain; charset=UTF-8'})
