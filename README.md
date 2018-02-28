@@ -12,12 +12,22 @@ files as storage backend. You can see in action in https://lesma.eu.
 
 To install lesma follow this steps.
 
+### From source
+
 ```sh
 git clone https://github.com/ogarcia/lesma.git
 virtualenv3 ./lesma-venv
 source ./lesma-venv/bin/activate
 cd lesma
 python setup.py install
+```
+
+### From PyPI
+
+```sh
+virtualenv3 ./lesma-venv
+source ./lesma-venv/bin/activate
+pip install lesma
 ```
 
 ## Run
