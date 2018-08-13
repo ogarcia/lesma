@@ -120,8 +120,12 @@ lesma = Blueprint('lesma', __name__)
 def index():
     if request.method == 'POST':
         lesma = request.form['lesma']
-        nid = write(new_hash(), lesma)
-        redirect = url_for('.get_lesma', lesma_id=nid, _external=True)
+        if lesma == '':
+            # Prevents the creation of empty lesmas
+            redirect = url_for('.index', _external=True)
+        else:
+            nid = write(new_hash(), lesma)
+            redirect = url_for('.get_lesma', lesma_id=nid, _external=True)
         response = make_response('{}\n'.format(redirect), 303)
         response.headers['Location'] = redirect
         return response
