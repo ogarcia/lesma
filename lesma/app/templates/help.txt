@@ -23,7 +23,7 @@ AUTHOR
     Written by Óscar García Amor
 
 COPYRIGHT
-    Copyright © 2017-2018 Óscar García Amor (https://ogarcia.me).
+    Copyright © 2017-2020 Óscar García Amor (https://ogarcia.me).
     Distributed under terms of the GNU GPLv3 license.
 
 REPORTING BUGS
