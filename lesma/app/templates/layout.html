@@ -5,7 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Simple paste app friendly with browser and command line.">
+    {%- if request.path in [url_for('.index'), url_for('.get_help')] %}
     <meta name="author" content="Óscar García Amor">
+    {%- endif %}
     <meta name="keywords" content="lesma, paste, pastebin, sprunge, pastein, hastebin, friendly, command line">
     <meta name="url" content="{{ url_for('.index', _external=True) }}" itemprop="url">
     <meta property="og:title" content="lesma">
