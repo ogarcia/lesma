@@ -1,6 +1,6 @@
 /*
  * lesma.css
- * Copyright (C) 2017-2020 Óscar García Amor
+ * Copyright (C) 2017-2021 Óscar García Amor
  *
  * Distributed under terms of the GNU GPLv3 license.
  */
@@ -20,7 +20,7 @@ html, body {
 
 .linenodiv {
   background-color: #f7f7f7;
-  padding: 0 5px; 
+  padding: 0 5px;
 }
 
 .linenodiv pre {

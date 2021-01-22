@@ -1,6 +1,6 @@
 /*
  * lesma.js
- * Copyright (C) 2017-2020 Óscar García Amor <ogarcia@connectical.com>
+ * Copyright (C) 2017-2021 Óscar García Amor <ogarcia@connectical.com>
  *
  * Distributed under terms of the GNU GPLv3 license.
  */
