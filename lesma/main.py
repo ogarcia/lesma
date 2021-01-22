@@ -53,7 +53,7 @@ def wsgi(host=None, port=None):
     port = int(os.environ.get('LESMA_PORT', DEFAULT_PORT)) if port is None else port
 
     from gevent.pywsgi import WSGIServer
-    from werkzeug.contrib.fixers import ProxyFix
+    from werkzeug.middleware.proxy_fix import ProxyFix
     app.wsgi_app = ProxyFix(app.wsgi_app)
     print('Serving on http://{}:{}/'.format(host, port))
     WSGIServer((host, port), app).serve_forever()
