@@ -119,8 +119,8 @@ lesma = Blueprint('lesma', __name__)
 @lesma.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
-        lesma = request.form['lesma']
-        if lesma == '':
+        lesma = request.form.get('lesma')
+        if lesma is None or lesma.strip() == '':
             # Prevents the creation of empty lesmas
             redirect = url_for('.index', _external=True)
         else:
