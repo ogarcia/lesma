@@ -1,6 +1,6 @@
 # lesma
 
-(c) 2017-2021 Óscar García Amor
+(c) 2017-2023 Óscar García Amor
 
 Redistribution, modifications and pull requests are welcomed under the terms
 of GPLv3 license.
