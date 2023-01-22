@@ -1,3 +1,14 @@
+# The project has moved
+
+lesma code is now hosted in [GitLab][lesma] and rewritten in [Rust][rust]
+
+- New Git: https://gitlab.com/ogarcia/lesma
+- New bugtracker: https://gitlab.com/ogarcia/lesma/-/issues
+- New tag list: https://gitlab.com/ogarcia/lesma/-/tags
+
+[lesma]: https://gitlab.com/ogarcia/lesma
+[rust]: https://www.rust-lang.org
+
 # lesma
 
 (c) 2017-2023 Óscar García Amor
